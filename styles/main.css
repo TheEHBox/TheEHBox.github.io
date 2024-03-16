@@ -85,9 +85,10 @@ body{
     }
 
     /* makes portfolio things 2 side by side */
-    body#portfolio #portfolioItems li{ /*body#portfolio #portfolioItems ul{*/  
+    body#portfolio #portfolioItems > *{ /*applies to second level ul: the left and right columns*/
         flex-basis: 46%;
         margin-right: 4%;
+        padding-left: 0;
     }
 
 }
@@ -135,12 +136,16 @@ body > footer{
     grid-area: foot;
 }
 
-body#portfolio #portfolioItems { /*body#portfolio #portfolioItems li{*/
+body#portfolio #portfolioItems { /*applies to top level ul: holds left and right columns*/
     display: flex;
     flex-wrap: wrap;
     flex: 1;
-    list-style-type: none;
     padding: 0;
+}
+
+body#portfolio #portfolioItems li{ /*applies to li's: in the left and right columns*/
+    list-style-type: none;
+    padding-bottom: var(--vertical-space);
 }
 
 body#portfolio li img{
