@@ -21,15 +21,15 @@
     </header>
     <nav>
         <ul>
-            <li><a href="index.html">About</a></li>
+            <li><a href="index.html" id="navLeft">About</a></li>
             <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="resume.html">Resume</a></li>
+            <li><a href="resume.html" id="navRight">Resume</a></li>
         </ul>
     </nav>
     <main>
         <h1>Portfolio</h1>
         <ul id="portfolioItems">
-            <ul>
+            <ul id="portfolioItemsLeft">
                 <li>
                     <h2>CSSE 220: Final Project</h2>
                     <!-- I don't think there should be a link. I don't have anywhere me-specific to link to. Maybe put the presentation we made on onedrive? Or a make a youtube video, but I don't really want to do that -->
@@ -60,9 +60,10 @@
                 </li>
             </ul>
 
-            <ul>
+            <ul id="portfolioItemsRight">
                 <li>
-                    <h2>CSSE 230: Editor Trees</h2> <!-- Again, no where to link to. -->
+                    <h2>CSSE 230: Editor Trees</h2> 
+                    <!-- Again, no where to link to. -->
                     <img src="images/portfolio/proj230.png" alt="A screenshot of the tree visualizer" />
                     <p>
                         CSSE 230, known as Data Structures and Algorithm Analysis, had a (non-final) project where teams
@@ -80,56 +81,15 @@
             </ul>
         </ul>
 
-        <!-- <ul id="portfolioItemsLeft">
-            
-            <li>
-                <h2>CSSE 220: Final Project</h2>
-                <img src="images/portfolio/proj220.png" alt="A screenshot of the final project game"/>
-                <p>
-                    CSSE 220, known as Object-Oriented Software Development, had a final project where teams would create a game that was similar to Jetpack Joyride.
-                    It needed to react to the player pressing keys on the keyboard, and have the player stay within the bounds of the screen.
-                    The player character also needed to collide with and not go through barriers.
-                    There were missiles (sometimes homing) to avoid and coins to collect.
-                    My team decided to implement extra features, like sidescrolling, and resizing to fit the current window.
-                </p>
-            </li>
-
-            <li>
-                <h2>High School: <a href="https://scratch.mit.edu/studios/30971553">Maze Games</a></h2> 
-                <img src="images/portfolio/maze.png" alt="A screenshot of a 3D maze game"/>
-                <p>
-                    In high school, in my free time, I worked on making a series of maze games.
-                    They gradually got more and more elaborate.
-                    Some are two player.
-                    Some have enemies to avoid.
-                    Some are 3D.
-                </p>
-            </li>
-        </ul>
-
-        <ul id="portfolioItemsRight">
-            
-            <li>
-                <h2>CSSE 230: Editor Trees</h2> 
-                <img src="images/portfolio/proj230.png" alt="A screenshot of the tree visualizer"/>
-                <p>
-                    CSSE 230, known as Data Structures and Algorithm Analysis, had a (non-final) project where teams would implement a version of an AVL tree.
-                    When needed, the tree would rotate, which involves rearranging the structure of the tree to make it more efficient for traversing.
-                    The difference from a regular AVL tree is that it doesn't have the search property.
-                    It instead uses index to access items, which were characters.
-                    It is called "Editor" because it could be used as the backend of a word editor.
-                    The picture shown is the tree visualizer, useful in debugging.
-                    The tree spells out the word "tree" when read in an in-order traversal.
-                </p>
-            </li>
-
-            
-        </ul> -->
-
     </main>
     <footer>
         You can email me at hardenej@rose-hulman.edu
     </footer>
+
+    <!-- gsap: animations -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <!-- my script -->
     <script src="scripts/main.js"></script>
 </body>
 

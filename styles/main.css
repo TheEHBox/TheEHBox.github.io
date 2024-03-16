@@ -9,11 +9,9 @@
     --body-color: #ffffff; /*used for body text*/ 
     --heading-color: #3866B0; /*#71A7E3  #395484  #3866B0  #045FD5  #056CF2*/ 
     --contrast-color: #7BE0B3; /*used for link underline*/ 
+    --bg-color: #151515; /*one of the colors used in the background*/ 
 }
 
-html{
-    background-image: linear-gradient(12deg, rgba(193, 193, 193,0.05) 0vh, rgba(193, 193, 193,0.05) 2vh,rgba(129, 129, 129,0.05) 2vh, rgba(129, 129, 129,0.05) 27vh,rgba(185, 185, 185,0.05) 27vh, rgba(185, 185, 185,0.05) 66vh,rgba(83, 83, 83,0.05) 66vh, rgba(83, 83, 83,0.05) 100vh),linear-gradient(321deg, rgba(240, 240, 240,0.05) 0vh, rgba(240, 240, 240,0.05) 13vh,rgba(231, 231, 231,0.05) 13vh, rgba(231, 231, 231,0.05) 34vh,rgba(139, 139, 139,0.05) 34vh, rgba(139, 139, 139,0.05) 71vh,rgba(112, 112, 112,0.05) 71vh, rgba(112, 112, 112,0.05) 100vh),linear-gradient(236deg, rgba(189, 189, 189,0.05) 0vh, rgba(189, 189, 189,0.05) 47vh,rgba(138, 138, 138,0.05) 47vh, rgba(138, 138, 138,0.05) 58vh,rgba(108, 108, 108,0.05) 58vh, rgba(108, 108, 108,0.05) 85vh,rgba(143, 143, 143,0.05) 85vh, rgba(143, 143, 143,0.05) 100vh),linear-gradient(96deg, rgba(53, 53, 53,0.05) 0vh, rgba(53, 53, 53,0.05) 53vh,rgba(44, 44, 44,0.05) 53vh, rgba(44, 44, 44,0.05) 82vh,rgba(77, 77, 77,0.05) 82vh, rgba(77, 77, 77,0.05) 98vh,rgba(8, 8, 8,0.05) 98vh, rgba(8, 8, 8,0.05) 100vh),linear-gradient(334deg, hsl(247,0%,2%),hsl(247,0%,2%));
-}
 
 /* small screens: top header doesn't have padding on the bottom, so the nav is closer to it*/
 header{
@@ -26,7 +24,16 @@ footer{
     padding-bottom: var(--vertical-space);
 }
 
+#portfolio #portfolioItems > * {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 body{
+    min-height: 100vh; /* Makes the background reach the bottom of the screen when the content doesn't */
+    background-color: var(--bg-color);
+    background-image: linear-gradient(12deg, rgba(193, 193, 193,0.05) 0vh, rgba(193, 193, 193,0.05) 2vh,rgba(129, 129, 129,0.05) 2vh, rgba(129, 129, 129,0.05) 27vh,rgba(185, 185, 185,0.05) 27vh, rgba(185, 185, 185,0.05) 66vh,rgba(83, 83, 83,0.05) 66vh, rgba(83, 83, 83,0.05) 100vh),linear-gradient(321deg, rgba(240, 240, 240,0.05) 0vh, rgba(240, 240, 240,0.05) 13vh,rgba(231, 231, 231,0.05) 13vh, rgba(231, 231, 231,0.05) 34vh,rgba(139, 139, 139,0.05) 34vh, rgba(139, 139, 139,0.05) 71vh,rgba(112, 112, 112,0.05) 71vh, rgba(112, 112, 112,0.05) 100vh),linear-gradient(236deg, rgba(189, 189, 189,0.05) 0vh, rgba(189, 189, 189,0.05) 47vh,rgba(138, 138, 138,0.05) 47vh, rgba(138, 138, 138,0.05) 58vh,rgba(108, 108, 108,0.05) 58vh, rgba(108, 108, 108,0.05) 85vh,rgba(143, 143, 143,0.05) 85vh, rgba(143, 143, 143,0.05) 100vh),linear-gradient(96deg, rgba(53, 53, 53,0.05) 0vh, rgba(53, 53, 53,0.05) 53vh,rgba(44, 44, 44,0.05) 53vh, rgba(44, 44, 44,0.05) 82vh,rgba(77, 77, 77,0.05) 82vh, rgba(77, 77, 77,0.05) 98vh,rgba(8, 8, 8,0.05) 98vh, rgba(8, 8, 8,0.05) 100vh),linear-gradient(334deg, hsl(247,0%,2%),hsl(247,0%,2%));
+
     
     font-size: 18px;
     line-height: 1.5;
@@ -60,17 +67,19 @@ body{
         padding-top: var(--vertical-space);
         padding-bottom: var(--vertical-space);
 
-        /* Grid inside of a grid, so it is vertically centered. */
-        display: grid;
-        grid-template-columns: auto; 
-        grid-template-rows: 1fr auto 1fr;
-        grid-template-areas: "t"
-                             "m"
-                             "b";
+        /* vertical align */
+        margin-top: auto;
+        margin-bottom: auto;
+        width: 50%;
+
     }
 
     header {               
         padding-bottom: var(--vertical-space);
+    }
+
+    #portfolio #portfolioItems > * {
+        padding-left: var(--horizontal-space);
     }
   
     body > nav > ul {
@@ -98,10 +107,7 @@ body > * {
     padding-right: var(--horizontal-space);
 }
 
-#portfolio > * {
-    padding-left: var(--horizontal-space);
-    padding-right: 0;
-}
+
 
 
 body#about img {
@@ -168,16 +174,66 @@ p, #resume{
     max-width: 50rem;
 }
 
-a{
+/* Old way: hover instantly changes the color. Left here for reference later. */
+/* a{ */
     /* links */
     /* color: var(--body-color); */
-    color: inherit; /* Makes them body color if in the body, h2 color if in h2, etc */
-    text-decoration-color: var(--contrast-color);
+    /*color: inherit;  Makes them body color if in the body, h2 color if in h2, etc */
+    /* text-decoration-color: var(--contrast-color);
 }
 
 a:hover{
     text-decoration-color: var(--heading-color)
+} */
+
+
+/* This modified from https://www.eina.ca/ 
+A 'progress bar' underline.*/
+a { 
+    text-decoration: none;
+    background-image: linear-gradient(var(--contrast-color) 50%, var(--contrast-color) 50%);
+    background-repeat: no-repeat;
+    background-position: right bottom 0;
+    background-size: 100% 0.0833em;
+    color: inherit;
+    position: relative
 }
+
+a:before {
+    content: '';
+    width: 100%;
+    height: 0.0833em;
+    background-color: var(--heading-color);
+    position: absolute;
+    bottom: 0;
+    transform-origin: center;
+    transform: scale(0,1);
+    transition: transform .2s linear
+}
+
+a#navLeft:before {
+    content: '';
+    transform-origin: left;
+}
+
+a#navRight:before {
+    content: '';
+    transform-origin: right;
+}
+
+a:hover:before,
+a:focus:before {
+    transform: scale(1,1)
+}
+
+/* main a,
+footer a {
+    background-position: right bottom -.85px
+}
+
+dd a {
+    background-position: 0 1.05rem
+} */
 
 
 header h1, footer h1{
